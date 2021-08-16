@@ -27,27 +27,45 @@ public class KalkulatorActivity extends AppCompatActivity implements View.OnClic
         btnDevide = findViewById(R.id.btn_devide);
         txtHasil = findViewById(R.id.txtHasil);
 
+        btnPlus.setOnClickListener(this);
+        btnMinus.setOnClickListener(this);
         setTitle("Kalkulator");
     }
 
     @Override
     public void onClick(View view) {
+        double angka1, angka2, hasil;
+        int id = view.getId();
+        switch (id){
+            case R.id.btn_plus:
+                angka1 = Double.parseDouble(edtAngka1.getText().toString());
+                angka2 = Double.parseDouble(edtAngka2.getText().toString());
+                hasil = angka1 + angka2;
+                txtHasil.setText(String.valueOf(hasil));
+                break;
+            case R.id.btn_minus:
+                angka1 = Double.parseDouble(edtAngka1.getText().toString());
+                angka2 = Double.parseDouble(edtAngka2.getText().toString());
+                hasil = angka1 - angka2;
+                txtHasil.setText(String.valueOf(hasil));
+                break;
+        }
 
     }
 
-    public void actionTambah(View view) {
-        double angka1 = Double.parseDouble(edtAngka1.getText().toString());
-        double angka2 = Double.parseDouble(edtAngka2.getText().toString());
-        double hasil = angka1 + angka2;
-        txtHasil.setText(String.valueOf(hasil));
-    }
-
-    public void actionKurangi(View view) {
-        double angka1 = Double.parseDouble(edtAngka1.getText().toString());
-        double angka2 = Double.parseDouble(edtAngka2.getText().toString());
-        double hasil = angka1 - angka2;
-        txtHasil.setText(String.valueOf(hasil));
-    }
+//    public void actionTambah(View view) {
+//        double angka1 = Double.parseDouble(edtAngka1.getText().toString());
+//        double angka2 = Double.parseDouble(edtAngka2.getText().toString());
+//        double hasil = angka1 + angka2;
+//        txtHasil.setText(String.valueOf(hasil));
+//    }
+//
+//    public void actionKurangi(View view) {
+//        double angka1 = Double.parseDouble(edtAngka1.getText().toString());
+//        double angka2 = Double.parseDouble(edtAngka2.getText().toString());
+//        double hasil = angka1 - angka2;
+//        txtHasil.setText(String.valueOf(hasil));
+//    }
 
     public void actionKali(View view) {
         double angka1 = Double.parseDouble(edtAngka1.getText().toString());
